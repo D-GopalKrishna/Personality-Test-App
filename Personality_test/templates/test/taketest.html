@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hi, {{ username.username }}!</p>
+    <br>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {% for q in questions %}
+            <p>{{ q.question }}</p>
+            <!--  Making the id and for same for the label and keeping name same for all the input tags -->
+            <input type="radio" name="choices_for_q{{ forloop.counter }}" id="op1_{{ forloop.counter }}" value="1">
+            <label for="op1_{{ forloop.counter }}"></label>
+
+            <input type="radio" name="choices_for_q{{ forloop.counter }}" id="op2_{{ forloop.counter }}" value="2">
+            <label for="op2_{{ forloop.counter }}"></label>
+
+            <input type="radio" name="choices_for_q{{ forloop.counter }}" id="op3_{{ forloop.counter }}" value="3">
+            <label for="op3_{{ forloop.counter }}"></label>
+
+            <input type="radio" name="choices_for_q{{ forloop.counter }}" id="op4_{{ forloop.counter }}" value="4">
+            <label for="op4_{{ forloop.counter }}"></label>
+
+            <input type="radio" name="choices_for_q{{ forloop.counter }}" id="op5_{{ forloop.counter }}" value="5">
+            <label for="op5_{{ forloop.counter }}"></label>
+
+        {% endfor %}
+        <br>
+        <br>
+        <br>
+
+
+        <input type="submit" value="Submit">
+        <br>
+        <br>
+
+
+    </form>
+    
+</body>
+</html>

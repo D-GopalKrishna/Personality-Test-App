@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, TestRecord             #, UserChoices
+from .models import Question, UserChoice, UserName 
 from import_export.admin import ImportExportModelAdmin
 from.resources import QuestionResource
 # Register your models here.
@@ -11,5 +11,7 @@ admin.site.register(Question,QuestionAdmin)               ## Can also use the de
  
 
 
-admin.site.register(TestRecord)
-# admin.site.register(UserChoices)
+# admin.site.register(TestRecord)
+admin.site.register(UserChoice)
+admin.site.register(UserName)
+

@@ -7,6 +7,9 @@ urlpatterns = [
     # path('<uuid:pk>/results/', views.ResultView.as_view(), name="result"),
 
     path('', views.HomeView, name="index"),
-    path('<uuid:pk>/test/', views.TestView, name="test"),
-    path('<uuid:pk>/results/', views.ResultView, name="result"),
+    path('test/<uuid:url_key>/', views.TestView, name="test"),
+    path('result/<uuid:url_key>/', views.ResultView, name="result"),
+
+    # path('personality_api/', )
+
 ]
