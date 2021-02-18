@@ -1,0 +1,32 @@
+
+
+.jumboStyle{
+    height:800px;
+}
+
+.NameEnter{
+    text-align: center;
+}
+
+
+.TextInput{
+    outline:'none';
+    margin-bottom: 10px;
+}
+
+.AnswerButton{
+    display: flex;
+
+    justify-content: space-around;
+}
+
+
+
+
+
+@media (max-width:500px){
+    .AnswerButton{
+        display: flex;
+        justify-content: space-around;
+    }
+}

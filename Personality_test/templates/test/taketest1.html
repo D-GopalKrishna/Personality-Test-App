@@ -7,15 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Hi!</p>
-    <form method="POST">
+    <form action="">
     {% csrf_token %}
-        <label for="username">Enter your name: </label>
-        <input type="text" name="username">
-
-        <input type="submit" name="but-1" value="Take Test One">
-        <input type="submit" name="but-2" value="Take Test Two">
+    {% for i in user_selection_form %}    
+        {{i}}
+        <br>
+        <br>
+    {% endfor %}
+        <input type="submit" value="Submit">
     </form>
-    <br><br>
+    
+    
 </body>
 </html>

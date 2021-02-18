@@ -1,0 +1,31 @@
+.mainDiv{
+    margin: 0px;
+    padding:0px;
+}
+
+.jumboStyle{
+    height:1000px;
+}
+
+.cont{
+    margin-top: 220px;
+}
+
+
+
+
+
+
+
+@media (max-width:600px){
+    .cont{
+        margin-top: 180px;
+    }
+}
+
+
+@media (max-width:400px){
+    .cont{
+        margin-top: 80px;
+    }
+}
