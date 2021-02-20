@@ -20,20 +20,44 @@ const TestNameEnter = ({onAdd, userData}) => {
             alert('Please add your name!')
             return 
         }
-        onAdd({text})
 
-        console.log(userData[0])
-        let user_urlkey = userData[0].url_key;
+        let i, gotit;
+        for (i in userData){
+            if (userData[i].username==text){
+                // let user_urlkey = userData[i].url_key;
+                // history.push(`/results/${user_urlkey}`);
+                gotit = 'Gotit';
+            }
+        }
+        if (gotit=='Gotit'){
+            alert('This name is already taken!')
+            // pass
+        }
+        else{
+            // alert('Please add a name that has taken the test!')
+            // break
+            onAdd({text})
+            history.push(`/enteredname/${text}`);
+
+            // console.log(userData[userData.length - 1])
+            // let user_urlkey = userData[0].url_key;
+        }
+
+
+        
+        
         setText('')
-        history.push(`/test/${user_urlkey}`);
 
     }
+
     
 
 
-    function handleSubmit(e) {
-        e.preventDefault()
-    }
+    // function pushMan(e) {
+        
+
+    //     e.preventDefault()
+    // }
 
 
 
@@ -48,30 +72,29 @@ const TestNameEnter = ({onAdd, userData}) => {
                                 <br/>
                                 <br/>
                                 <br/>
-                                <h5>Enter your Name</h5>
+                                <h5>Enter a unique username</h5>
                                 <div className="NameEnter">
                                     <input type="text" value={text} className="TextInput" onChange={(e) => setText(e.target.value)} />
                                     <br/>
                                     <br/>
-                                    <br/>
 
                                     <div class="AnswerButton">
-                                        <div>
-                                            <p>Answer one by one</p>
-                                            {/* <Link to='/test'><input type="button" className="SubmitText" value="Take Test" placeholder="Ex. Nik" /></Link> */}
-                                            <input type="submit" className="SubmitText" value="Take Test" placeholder="Ex. Nik" />
+                                        {/* <p>Answer one by one</p> */}
+                                        {/* <Link to='/test'><input type="button" className="SubmitText" value="Take Test" placeholder="Ex. Nik" /></Link> */}
+                                        <input type="submit" className="SubmitText" value="Submit" placeholder="Ex. Nik" />
 
-                                        </div>
-                                        <div>
-                                            <p>Answer All at once</p>
-                                            {/* <Link to='/test'><input type="button" className="SubmitText" value="Take Test" placeholder="Ex. Nik" /></Link> */}
-                                            <input type="submit" className="SubmitText" value="Take Test" placeholder="Ex. Nik" />
-
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </form>
+
+                        {/* <div>
+                            <p>Get Results</p>
+                            <Link to='/test'><input type="button" className="SubmitText" value="Take Test" placeholder="Ex. Nik" /></Link>
+                            <input type="submit" className="SubmitText" value="Take Test" placeholder="Ex. Nik" />
+
+                        </div> */}
                     </Container>
                 </Container>
             </Jumbotron>

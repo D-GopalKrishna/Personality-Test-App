@@ -9,8 +9,13 @@ const ResultnameEnter = ({userData}) => {
 
     let history = useHistory();
 
-    const [text, setText] = useState('')
+    const [name, setName] = useState('')
     const onClick = (e) => {
+
+        if (!name) {
+            alert('Please add your name!')
+            return 
+        }
         // e.preventDefault()
         // if (!text) {
         //     alert('Please add your name!')
@@ -18,12 +23,34 @@ const ResultnameEnter = ({userData}) => {
         // }
         // onAdd({text})
 
-        console.log(userData[0])
-        let user_urlkey = userData[0].url_key;
-        setText('')
-        history.push(`/results/${user_urlkey}`);
+        let i, gotit;
+
+        for (i in userData){
+            if (userData[i].username==name){
+
+                let user_urlkey = userData[i].url_key;
+                history.push(`/results/${user_urlkey}`);
+                gotit = 'Gotit';
+            }
+        }
+        
+        if (gotit=='Gotit'){
+            // pass
+        }
+        else{
+            alert('Please add a name that has taken the test!')
+            // break
+        }
+
+        console.log(name)
+        // console.log(userData)
+        // let user_urlkey = userData[0].url_key;
+        setName('')
+        // history.push(`/results/${user_urlkey}`);
 
     }
+    // setText([...text, text])
+
     
 
 
@@ -42,17 +69,17 @@ const ResultnameEnter = ({userData}) => {
                             <br/>
                             <br/>
                             <br/>
+
+
                             <h5>Enter your Name</h5>
                             <div className="NameEnter">
-                                <input type="text" value={text} className="TextInput" onChange={(e) => setText(e.target.value)} />
-                                <br/>
+                                <input type="text" value={name} className="TextInput" onChange={(e) => setName(e.target.value)} />
                                 <br/>
                                 <br/>
 
                                 <div class="AnswerButton">
                                     <div>
-                                        <p>Answer one by one</p>
-                                        <Link onClick={onClick}><input type="button" className="SubmitText" value="Take Test" placeholder="Ex. Nik" /></Link>
+                                        <Link onClick={onClick}><input type="button" className="SubmitText" value="Get Results" placeholder="Ex. Nik" /></Link>
                                         {/* <input type="submit" className="SubmitText" value="Take Test" placeholder="Ex. Nik" /> */}
 
                                     </div>

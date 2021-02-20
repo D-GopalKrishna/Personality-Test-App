@@ -6,6 +6,8 @@ import Headers from './components/Headers';
 import Results from './components/Results';
 import IntroBlock from './components/IntroBlock';
 import TestNameEnter from './components/TestNameEnter';
+import TaketestButton from './components/TaketestButton';
+
 import ResultnameEnter from './components/ResultnameEnter';
 
 import Test from './components/Test';
@@ -18,8 +20,27 @@ function App() {
 
   const [userData, setuserData] = useState([])
 
+
+  // GET
+  useEffect(() => {
+    const getUserData = async () => {
+      const userDataFromServer = await fetchUserData()
+      setuserData(userDataFromServer)
+    }
+    getUserData()
+  }, [])
+
+  const fetchUserData = async () => {
+    const res = await fetch(`http://127.0.0.1:8000/personality_api/userdata`)
+    const data = await res.json()
+
+    return data
+  }
+
+
+  //POST
   const addUser = async (user) => {
-    console.log(user.text)
+    // console.log(user.text)
     const userda = {
       "username": user.text,
     }
@@ -32,7 +53,7 @@ function App() {
       body: JSON.stringify(userda),
     })
     const data = await res.json()
-    console.log("hey data", data.url_key)
+    // console.log("hey data", data.url_key)
 
     setuserData([...userData, data])
     // console.log("hey setuserData", setuserData)  
@@ -57,6 +78,13 @@ function App() {
           <TestNameEnter onAdd={addUser} userData={userData} />
         </>
       )} />
+
+      <Route path='/enteredname/*' exact render={(props) => (
+        <> 
+          <TaketestButton userData={userData} />
+        </>
+      )} />
+
 
       <Route path='/resultentername' exact render={(props) => (
         <> 
