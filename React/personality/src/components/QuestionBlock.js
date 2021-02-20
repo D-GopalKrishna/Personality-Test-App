@@ -20,13 +20,13 @@ const QuestionBlock = ({questions, addSelected}) => {
 
     const onClick = (e) => {
         console.log('You clicked a button!')
-        console.log(e.target.value)
+        // console.log(e.target.value)
         // console.log(e.target.id)
-        console.log(e.target.name)
+        // console.log(e.target.name)
         // button_value = e.target.value
         // addSelected({button_value})
         let slecksss = [e.target.name,e.target.value]
-        console.log(slecksss)
+        // console.log(slecksss)
 
         addSelected({slecksss})
 

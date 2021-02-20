@@ -1,0 +1,10 @@
+.DivTestSubmitBtn{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.TestSubmitBtn{
+    border-radius: 6px;
+}
